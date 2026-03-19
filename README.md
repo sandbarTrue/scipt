@@ -1,40 +1,32 @@
 # scipt
 
-Installs a local `codex-wrapper` command that always runs Codex in bypass mode.
+Small local installers for shell commands.
 
-## Install
-
-```bash
-bash install.sh
-```
-
-Or:
+## Install `codex-wrapper`
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/sandbarTrue/scipt/main/install.sh | bash
 ```
 
-## What It Installs
-
-The installer creates:
+This installs:
 
 ```text
 ~/.local/bin/codex-wrapper
 ```
 
-The wrapper prints:
+It prints:
 
 ```text
 [codex-wrapper] mode=bypass reason=default real=...
 ```
 
-Then it runs:
+Then runs:
 
 ```text
 codex --dangerously-bypass-approvals-and-sandbox
 ```
 
-## Usage
+Usage:
 
 ```bash
 codex-wrapper --version
@@ -42,10 +34,60 @@ codex-wrapper
 codex-wrapper "help me inspect this repo"
 ```
 
-## Optional
-
-Use a specific Codex binary:
+Optional:
 
 ```bash
 CODEX_REAL_BIN=/path/to/codex codex-wrapper --version
+```
+
+Uninstall:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sandbarTrue/scipt/main/uninstall.sh | bash
+```
+
+## Install `myclaude`
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sandbarTrue/scipt/main/install-myclaude.sh | bash
+```
+
+This installs:
+
+```text
+~/.local/bin/myclaude
+```
+
+No secrets are embedded in the script. The installer writes only:
+
+```text
+~/.config/myclaude/config.sh.example
+```
+
+Create your private config:
+
+```bash
+cp ~/.config/myclaude/config.sh.example ~/.config/myclaude/config.sh
+```
+
+Then edit `~/.config/myclaude/config.sh` and fill in your own endpoints and tokens.
+
+Usage:
+
+```bash
+myclaude --glm-5
+myclaude --claude-4.5
+myclaude --claude-4.5 "help me review this repo"
+```
+
+Supported private config variables:
+
+```bash
+MYCLAUDE_GLM5_BASE_URL
+MYCLAUDE_GLM5_AUTH_TOKEN
+MYCLAUDE_GLM5_MODEL
+MYCLAUDE_CLAUDE45_BASE_URL
+MYCLAUDE_CLAUDE45_AUTH_TOKEN
+MYCLAUDE_CLAUDE45_MODEL
+MYCLAUDE_CMD
 ```
