@@ -80,6 +80,25 @@ myclaude --claude-4.5
 myclaude --claude-4.5 "help me review this repo"
 ```
 
+Uninstall:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/sandbarTrue/scipt/main/uninstall-myclaude.sh | bash
+```
+
+This removes:
+
+```text
+~/.local/bin/myclaude
+~/.config/myclaude/config.sh.example
+```
+
+It does not remove your private:
+
+```text
+~/.config/myclaude/config.sh
+```
+
 Supported private config variables:
 
 ```bash
